@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MANAMNCLDEO</title>
+  <style>
+    /* CSS styling for the website */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .header {
+      background-color: #517df5;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    
+    .content {
+      margin-top: 20px;
+    }
+    
+    label {
+      display: inline-block;
+      width: 150px;
+      font-weight: bold;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+      padding: 8px;
+      width: 300px;
+    }
+    
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #517df5;
+      background-color: #fff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+    
+    .footer {
+      background-color: #517df5;
+      
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    
+    .fadeIn {
+      animation-name: fadeIn;
+      animation-duration: 1s;
+    }
+    
+    .admin-panel {
+      display: none;
+    }
+  </style>
+  <script>
+    // JavaScript function to toggle the admin panel visibility based on user role
+    function toggleAdminPanel() {
+      var adminPanel = document.getElementById("adminPanel");
+      var isAdmin = document.getElementById("isAdmin").value;
+
+      if (isAdmin === "true") {
+        adminPanel.style.display = "block";
+      } else {
+        adminPanel.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="header">
+    <h1 class="fadeIn">MANAMNCLDEO</h1>
+  </div>
+  
+  <div class="container">
+    <div class="content">
+      <h2 class="fadeIn">Welcome to the MANAMNCLDEO </h2>
+      <p class="fadeIn">
+        This website provides a centralized platform for school administrators, teachers, and staff to efficiently manage and align their data.
+      </p>
+      
+      <!-- User Login Form -->
+      <h3 class="fadeIn">User Login</h3>
+      <form method="POST" action="login.php" class="fadeIn">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Login">
+      </form>
+      
+      <!-- User Portal -->
+      <div id="userPanel" class="panel">
+        <h3>User Portal</h3>
+        <!-- Display data for users -->
+        <!-- ... -->
+      </div>
+      
+      <!-- Admin Portal -->
+      <div id="adminPanel" class="panel">
+        <h3>Admin Portal</h3>
+        
+        <!-- Add Student Form -->
+        <h4>Add Student Data</h4>
+        <form method="POST" action="add_student.php" class="fadeIn">
+          <label for="studentName">Student Name:</label>
+          <input type="text" id="studentName" name="studentName" required><br><br>
+          
+          <label for="studentAge">Student Age:</label>
+          <input type="number" id="studentAge" name="studentAge" required><br><br>
+          
+          <!-- Additional student data fields -->
+          
+          <input type="submit" value="Add Student">
+        </form>
+        
+        <!-- Add Teacher Form -->
+        <h4>Add Teacher Data</h4>
+        <form method="POST" action="add_teacher.php" class="fadeIn">
+          <label for="teacherName">Teacher Name:</label>
+          <input type="text" id="teacherName" name="teacherName" required><br><br>
+          
+          <label for="teacherSubject">Subject:</label>
+          <input type="text" id="teacherSubject" name="teacherSubject" required><br><br>
+          
+          <!-- Additional teacher data fields -->
+          
+          <input type="submit" value="Add Teacher">
+        </form>
+        
+        <!-- Add School Information Form -->
+        <h4>Add School Information</h4>
+        <form method="POST" action="add_school_info.php" class="fadeIn">
+          <label for="schoolName">School Name:</label>
+          <input type="text" id="schoolName" name="schoolName" required><br><br>
+          
+          <label for="schoolAddress">School Address:</label>
+          <input type="text" id="schoolAddress" name="schoolAddress" required><br><br>
+          
+          <label for="schoolLocation">Location:</label>
+          <input type="text" id="schoolLocation" name="schoolLocation" required><br><br>
+          
+          <label for="locationLink">Location Link:</label>
+          <input type="text" id="locationLink" name="locationLink" required><br><br>
+          
+          <input type="submit" value="Add School Information">
+        </form>
+        
+        <!-- Edit Data -->
+        <h4>Edit Data</h4>
+        <!-- ... -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p class="fadeIn">&copy; 2023 MANAMNCLDEO. All rights reserved.</p>
+  </div>
+
+  <input type="hidden" id="isAdmin" value="<?php echo $isAdmin ? 'true' : 'false'; ?>">
+  <script>
+    toggleAdminPanel();
+  </script>
+</body>
+</html>
+
+
+<!-- index.php -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MANAMNCLDEO - School Data Alignment</title>
+  <style>
+    /* CSS styling for the website */
+    /* ... */
+  </style>
+  <script>
+    // JavaScript function to toggle the admin panel visibility based on user role
+    /* ... */
+  </script>
+</head>
+<body>
+  <!-- HTML and JavaScript code omitted for brevity -->
+
+  <input type="hidden" id="isAdmin" value="<?php echo $isAdmin ? 'true' : 'false'; ?>">
+  <script>
+    toggleAdminPanel();
+  </script>
+</body>
+</html>
+
+<!-- login.php -->
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+
+  // Perform validation and authentication
+  // ...
+
+  // For demonstration purposes, assume authentication is successful
+  $loggedIn = true;
+
+  if ($loggedIn) {
+    // Redirect the user to the user dashboard
+    header("Location: user_dashboard.php");
+    exit();
+  } else {
+    // Redirect back to the login page with an error message
+    header("Location: login.php?error=invalid_credentials");
+    exit();
+  }
+}
+?>
+<!-- add_teacher.php -->
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $teacherName = $_POST["teacherName"];
+  $teacherSubject = $_POST["teacherSubject"];
+
+  // Process the submitted teacher data
+  // ...
+
+  // Redirect back to the admin panel or show a success message
+  header("Location: admin_panel.php");
+  exit();
+}
+?>
+<!-- add_school_info.php -->
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $schoolName = $_POST["schoolName"];
+  $schoolAddress = $_POST["schoolAddress"];
+  $schoolLocation = $_POST["schoolLocation"];
+  $locationLink = $_POST["locationLink"];
+
+  // Process the submitted school information
+  // ...
+
+  // Redirect back to the admin panel or show a success message
+  header("Location: admin_panel.php");
+  exit();
+}
+?>
+
+
+
+
