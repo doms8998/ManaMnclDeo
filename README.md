@@ -1,4 +1,5 @@
 # ManaMnclDeo
+ A  School Data Alignment Website
 
 
 Welcome to the MANAMNCLDEO School Information Arrangement Site!
